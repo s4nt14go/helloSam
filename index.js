@@ -1,7 +1,7 @@
 var time = require('time');
 exports.handler = (event, context, callback) => {
   console.log('process.env', process.env);
-  console.log('1');
+  console.log('2');
   var currentTime = new time.Date();
   currentTime.setTimezone("America/Argentina/Cordoba");
   callback(null, {
