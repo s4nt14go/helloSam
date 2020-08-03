@@ -13,7 +13,7 @@ Deploy an endpoint which will tell you what time is in the timezone you code in 
 Requirements:
 * [AWS account](https://aws.amazon.com)
 * [AWS CLI](https://aws.amazon.com/cli)
-* [AWS Serverless Application Model (SAM)](https://aws.amazon.com/serverless/sam)
+* [AWS Serverless Application Model (SAM) CLI](https://aws.amazon.com/serverless/sam)
 
 Instructions:
 1. Clone this repo<br />
@@ -35,5 +35,5 @@ visit it with your browser and you will get the time from the timezone set in in
 You can try changing `tz` value in index.js for the timezone of your choice according to [moment-timezone](https://momentjs.com/timezone) and repeat steps 4, 5 and 6.
 
 
-As a demo you can browse to the endpoint this repo deploys:
+As a demo you can browse to the endpoint this repo deploys:<br />
 [https://hmddi9jmv3.execute-api.us-east-1.amazonaws.com/prod/TimeResource](https://hmddi9jmv3.execute-api.us-east-1.amazonaws.com/prod/TimeResource)
