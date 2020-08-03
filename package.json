@@ -17,6 +17,6 @@
   "homepage": "https://github.com/s4nt14go/helloSam#readme",
   "description": "",
   "dependencies": {
-    "time": "^0.12.0"
+    "moment-timezone": "^0.5.31"
   }
 }

@@ -1,12 +1,13 @@
+# This file it is useful if you want to configure CodePipeline
 version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 10
+      nodejs: 12
   build:
     commands:
-      - npm install time
-      # - export BUCKET=<TODO: put here the S3 bucket name you created in the same region>
+      - npm i
+      # - export BUCKET=<S3 bucket name>
       - aws cloudformation package --template-file template.yml --s3-bucket $BUCKET --output-template-file outputtemplate.yml
 artifacts:
   type: zip

@@ -6,11 +6,22 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: index.handler
-      Runtime: nodejs10.x
+      Runtime: nodejs12.x
       CodeUri: ./
       Events:
-        MyTimeApi:
+        HttpRoot:
           Type: Api
           Properties:
+            RestApiId: !Ref "MyApiName"
             Path: /TimeResource
             Method: GET
+
+  MyApiName:
+    Type: 'AWS::Serverless::Api'
+    Properties:
+      StageName: prod
+
+Outputs:
+  MyApiName:
+    Description: "Go to this URL to get the time from the timezone put in index.js"
+    Value: !Sub 'https://${MyApiName}.execute-api.${AWS::Region}.amazonaws.com/prod/TimeResource'

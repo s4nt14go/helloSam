@@ -1,11 +1,8 @@
-var time = require('time');
+var moment = require('moment-timezone');
+const tz = 'America/Los_Angeles';
 exports.handler = (event, context, callback) => {
-  console.log('process.env', process.env);
-  console.log('4');
-  var currentTime = new time.Date();
-  currentTime.setTimezone("America/Argentina/Cordoba");
   callback(null, {
     statusCode: '200',
-    body: 'The time in Córdoba is: ' + currentTime.toString(),
+    body: `The time in ${tz} is: ` + moment().tz(tz).format(),
   });
 };
