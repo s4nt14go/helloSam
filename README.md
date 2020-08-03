@@ -16,16 +16,24 @@ Requirements:
 * [AWS Serverless Application Model (SAM)](https://aws.amazon.com/serverless/sam)
 
 Instructions:
-1. Clone this repo: `git clone https://github.com/s4nt14go/helloSam.git`.
-2. Create a bucket filling with a random suffix (because the name has to be unique), for example if we want to deploy in region us-east-2 Ohio: `aws s3 mb s3://lambda-deployment-artifacts-<yourRandomSuffix> --region us-east-2`
-3. We will first build the project locally and then deploy it, as the runtime specified in template.yml is node v12 we have to use the same version locally, so make sure you are using node v12 running `node -v`. If you aren't using v12 you can use [nvm](https://github.com/nvm-sh/nvm) to install and set node v12 as the current node version.
-4. Build the project locally: `sam build`
-5. Check it works locally: `sam local invoke TimeFunction`
-6. Deploy it! `sam deploy --region us-east-2`
+1. Clone this repo<br />
+`git clone https://github.com/s4nt14go/helloSam.git`.
+2. Create a bucket filling with a random suffix (because the name has to be unique), for example if we want to deploy in region us-east-2 Ohio:<br />
+`aws s3 mb s3://lambda-deployment-artifacts-<yourRandomSuffix> --region us-east-2`
+3. We will first build the project locally and then deploy it, so `cd` into the repo. As the runtime specified in template.yml is node v12 we have to use the same version locally, so make sure you are using node v12 running `node -v`. If you aren't using v12 you can use [nvm](https://github.com/nvm-sh/nvm) to install and set node v12 as the current node version.
+4. Build the project locally<br />
+`sam build`
+5. Check it works locally<br />
+`sam local invoke TimeFunction`
+6. Deploy it!<br />
+`sam deploy --stack-name myStack --s3-bucket lambda-deployment-artifacts-<yourRandomSuffix> --capabilities CAPABILITY_IAM --region us-east-2`
 
-You can try changing `tz` value in index.js for the timezone of your choice according to [moment-timezone](https://momentjs.com/timezone) and repeating steps 4, 5 and 6.
+The last comand will output an url similar to<br />
+`https://<randomChars>.execute-api.us-east-2.amazonaws.com/prod/TimeResource`<br />
+visit it with your browser and you will get the time from the timezone set in index.js.
 
-The last comand will output an url similar to `https://<randomChars>.execute-api.us-east-2.amazonaws.com/prod/TimeResource`, visit it with your browser and you will get the time from the timezone set in index.js.
+You can try changing `tz` value in index.js for the timezone of your choice according to [moment-timezone](https://momentjs.com/timezone) and repeat steps 4, 5 and 6.
+
 
 As a demo you can browse to the endpoint this repo deploys:
 [https://hmddi9jmv3.execute-api.us-east-1.amazonaws.com/prod/TimeResource](https://hmddi9jmv3.execute-api.us-east-1.amazonaws.com/prod/TimeResource)
