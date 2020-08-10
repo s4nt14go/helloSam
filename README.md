@@ -22,6 +22,7 @@ Instructions:
 `aws configure list`
 1. Create a bucket filling with a random suffix (because the name has to be unique), for example if we want to deploy in region us-east-2 Ohio:<br />
 `aws s3 mb s3://lambda-deployment-artifacts-<yourRandomSuffix> --region us-east-2`
+1. We will first build the project locally and then deploy it, so `cd` into the repo. As the runtime specified in template.yml is node v12 we have to use the same version locally, so make sure you are using node v12 running `node -v`. If you aren't using v12 you can use [nvm](https://github.com/nvm-sh/nvm) to install and set node v12 as the current node version.
 1. Build the project locally<br />
 `sam build`
 1. Check it works locally<br />
@@ -33,7 +34,7 @@ The last comand will output an url similar to<br />
 `https://<randomChars>.execute-api.us-east-2.amazonaws.com/prod/TimeResource`<br />
 visit it with your browser and you will get the time from the timezone set in index.js.
 
-You can try changing `tz` value in index.js for the timezone of your choice according to [moment-timezone](https://momentjs.com/timezone) and repeat steps 4, 5 and 6.
+You can try changing `tz` value in index.js for the timezone of your choice according to [moment-timezone](https://momentjs.com/timezone) and repeat steps 5, 6 and 7.
 
 
 As a demo you can browse to the endpoint this repo deploys:<br />
