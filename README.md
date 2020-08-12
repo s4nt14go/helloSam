@@ -18,7 +18,7 @@ Requirements:
 Instructions:
 1. Clone this repo and cd into it<br />
 `git clone https://github.com/s4nt14go/helloSam.git`
-1. Check your are using your AWS credentials and region you want<br />
+1. Check your are using your AWS credentials and the region you want<br />
 `aws configure list`
 1. Create a bucket filling with a random suffix (because the name has to be unique), for example if we want to deploy in region us-east-2 Ohio:<br />
 `aws s3 mb s3://lambda-deployment-artifacts-<yourRandomSuffix> --region us-east-2`
